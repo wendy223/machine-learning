@@ -13,8 +13,8 @@ If you have any issue about opening these jupyter notebook, please try below:
 2. paste the github linkage into the opened nbviewer
 
 
-Requirements
-When the app is started, the user is presented with the main menu, which allows the user to (1) enter or edit current job details, (2) enter job offers, (3) adjust the comparison settings, or (4) compare job offers (disabled if no job offers were entered yet).  
+# Requirements
+1. When the app is started, the user is presented with the main menu, which allows the user to (1) enter or edit current job details, (2) enter job offers, (3) adjust the comparison settings, or (4) compare job offers (disabled if no job offers were entered yet).  
 
 A class “User” is added to execute these four actions in the main menu. I added four attributes for each user. The “name” and “userID” are used to identify the user. The “hasCurrentJob” is boolean to record whether this user has a current job or not. 
 
@@ -23,21 +23,23 @@ I added four operators (“editCurrentJob”, “enterJobOffer”, “adjustComp
 The attribute “numberOfJob”, including current job and job offers, is used to count the total number of jobs the user has. If it’s equal or greater than two, it will enable the “compareJobOffers” operators/button. 
 
 
-When choosing to enter current job details, a user will:
-Be shown a user interface to enter (if it is the first time) or edit all of the details of their current job.
+2. When choosing to enter current job details, a user will:
+
+2.1. Be shown a user interface to enter (if it is the first time) or edit all of the details of their current job.
 
 When the user clicks the edit current job, it will first check the attribute(“hasCurrentJob”) of “User”. If it’s false, it will provide a user interface for the user to enter the current job. If it’s true, it will load the current job to the UI for use to edit. The loading is invoked by the “getCurrentJob” operator.
  
 To edit the current job, I added a class “CurrentJob”, which is a subclass of “Job”. “CurrentJob” will inherit these attributes from the superclass “Job”. 
 
-Be able to either save the job details or cancel and exit without saving, returning in both cases to the main menu.
+b. Be able to either save the job details or cancel and exit without saving, returning in both cases to the main menu.
 
 To achieve this requirement, two operators are evoked. “saveJob” is to save the job details, similar to the “setValue” in Java. This operator is connected with the “save” button in the UI. If “saveJob” is executed, the attribute “hasCurrentJob” in “CurrentJob” class will be updated to be True.
 
 If the user doesn’t want to save it, the operator “cancelJob” can be used to discard the change. After clicking either the save or cancel button on the UI, it will return to the main menu. 
 
-When choosing to enter job offers, a user will:
-Be shown a user interface to enter all of the details of the offer, which are the same ones listed above for the current job.
+3. When choosing to enter job offers, a user will:
+
+3.1 Be shown a user interface to enter all of the details of the offer, which are the same ones listed above for the current job.
 
 To enter the details of the job offer, I added a class “JobOffers”, which is a subclass of “Job”. “JobOffers” will inherit all attributes from the superclass “Job”. If “saveJob” is executed, the attribute “hasJobOffer” in “JobOffers” class will be updated to be True.
 
